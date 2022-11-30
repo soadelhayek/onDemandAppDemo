@@ -2,6 +2,7 @@
 
   "Feature": {
     "title": { "string": {} },
+    "hieght" : {"int" },
     "Movies": {
       "hasMany": "Comment"
     }
