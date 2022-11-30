@@ -1,15 +1,17 @@
 {
 
-  "Movie": {
+  "Feature": {
     "title": { "string": {} },
-    "comments": {
+    "Movies": {
       "hasMany": "Comment"
     }
   },
-  "Comment": {
+  "Movie": {
     "body": { "string": {} },
     "post": {
-      "belongsTo": "Post"
+      "belongsTo": "Feature"
     }
   }
+ 
+  
 }
