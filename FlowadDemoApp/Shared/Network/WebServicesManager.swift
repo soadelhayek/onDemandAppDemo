@@ -73,12 +73,7 @@ class WebServiceManager {
             do {
                 let text = try String(contentsOfFile: path, encoding: .utf8)
                 if let dict = try JSONSerialization.jsonObject(with: text.data(using: .utf8)!, options: JSONSerialization.ReadingOptions.allowFragments) as? [[String: Any]] {
-
-                    
                     return dict
-                    //                    if let data = comp(JSON: dict) {
-//
-//                    }
                 }
             }catch {
                 print("\(error.localizedDescription)")
@@ -87,9 +82,24 @@ class WebServiceManager {
 
         return [[:]]
     }
+    
+    
+    func fetchMovieJSONContent() -> [[String: Any]]?{
+        if let path = Bundle.main.path(forResource: "Movie", ofType: "json") {
+            do {
+                let text = try String(contentsOfFile: path, encoding: .utf8)
+                if let dict = try JSONSerialization.jsonObject(with: text.data(using: .utf8)!, options: JSONSerialization.ReadingOptions.allowFragments) as? [[String: Any]] {
+                    return dict
+                }
+            }catch {
+                print("\(error.localizedDescription)")
+            }
+        }
+
+        return [[:]]
+    }
+
 }
-
-
 
 
 
