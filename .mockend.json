@@ -1,5 +1,6 @@
 {
-  "Post": {
+
+  "Movie": {
     "title": { "string": {} },
     "comments": {
       "hasMany": "Comment"
