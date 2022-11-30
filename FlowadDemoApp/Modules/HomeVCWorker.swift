@@ -9,6 +9,7 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
+import PromiseKit
 
 class HomeVCWorker :WebServiceManager {
     
@@ -17,39 +18,34 @@ class HomeVCWorker :WebServiceManager {
         return HomeVCWorker()
     }
     
-//    public func GetHome(Callback: @escaping RequestHomeHandler) {
-//        
-//    }
     
-//    public func GetHome(Callback: @escaping RequestHomeHandler) {
-//        self.internetConnectionChecker { (status) in
-//            if status{
-//                let  headers: HTTPHeaders = [ .accept(Accept),
-//                                              .authorization(bearerToken: ""),
-//                                              .acceptLanguage(L102Language.appLang)
-//                ]
-//                AF.request(getHomeApi, method: .get, headers: headers).responseJSON { response in
-//                    switch response.result {
-//                    case .success(let json):
-//                        SVProgressHUD.dismiss()
-//                        if let dict = json as? [String: Any] {
-//                            if let data = HomeModel(JSON: dict){
-//                                Callback(true, data)
-//                            }else{
-//                                Callback(false, nil)
-//
-//                            }
-//                        }
-//                    case .failure(let error):
-//                        print("Failed  :: \(error) ::  ")
-//                        self.maincontroller.ErrorMessage(title: NSLocalizedString("connectionError", comment: "connectionError"), errorbody: (error.failureReason))
-//                        Callback(false, nil)
-//                        break
-//                    }
-//                }
-//            }
-//        }
-//    }
+    
+    public func getMainScreenData() -> Promise<[[String: Any]]> {
+        return Promise<[[String: Any]]> { promise in
+            if let comp = WebServiceManager().fetchJSONContent() , comp.count > 0 {
+                promise.fulfill(comp)
+                
+            } else {
+                promise.reject(ServiceError.stringError("error"))
+            }
+        }
+    }
+    
+    
+    public func loadMain() -> Promise<Void> {
+        return getMainScreenData().done { (results) in
+            
+            HomeModel.components.removeAll()
+            
+            for (index, element) in results.enumerated() {
+                HomeModel.components[index] = Component(JSON: element)
+            }
+        }
+    }
+    
+    
     
 }
+
+
 

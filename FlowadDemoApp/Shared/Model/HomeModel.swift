@@ -9,8 +9,9 @@ import Foundation
 import ObjectMapper
 
 
-class HomeModel {
-    
+struct HomeModel {
+    static var components: [Int: Component] = [:]
+
 
     
 }

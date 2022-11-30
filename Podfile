@@ -17,5 +17,6 @@ target 'FlowadDemoApp' do
   pod 'SCLAlertView'
   pod 'SVProgressHUD'
   pod 'ReachabilitySwift'
+  pod 'PromiseKit/CorePromise'
 
 end

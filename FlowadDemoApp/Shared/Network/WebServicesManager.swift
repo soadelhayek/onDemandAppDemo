@@ -10,7 +10,14 @@ import SwiftyJSON
 import SCLAlertView
 import Alamofire
 import SVProgressHUD
+import PromiseKit
 
+
+
+enum ServiceError: Error {
+    case stringError(String)
+}
+ 
 class WebServiceManager {
     
     public var TAG: String = "";
@@ -50,7 +57,7 @@ class WebServiceManager {
         alertView.showError("Internt Connection", subTitle: "Check your internet connection")
     }
     
-
+    
     public func internetConnectionChecker(callback: @escaping InternetConnectionChecker){
         if Connectivity.isConnectedToInternet {
             callback(true)
@@ -59,7 +66,31 @@ class WebServiceManager {
         }
     }
     
+    
+    
+    func fetchJSONContent() -> [[String: Any]]?{
+        if let path = Bundle.main.path(forResource: "features", ofType: "json") {
+            do {
+                let text = try String(contentsOfFile: path, encoding: .utf8)
+                if let dict = try JSONSerialization.jsonObject(with: text.data(using: .utf8)!, options: JSONSerialization.ReadingOptions.allowFragments) as? [[String: Any]] {
+
+                    
+                    return dict
+                    //                    if let data = comp(JSON: dict) {
+//
+//                    }
+                }
+            }catch {
+                print("\(error.localizedDescription)")
+            }
+        }
+
+        return [[:]]
+    }
 }
+
+
+
 
 
 

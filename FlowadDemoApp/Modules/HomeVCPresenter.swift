@@ -7,7 +7,7 @@
 //
 
 import Foundation
-protocol HomeVCPresentationLogic: class{
+protocol HomeVCPresentationLogic: class {
     func presentHome(response: HomeVCModel.Home.Response)
     func refreshHome()
 }

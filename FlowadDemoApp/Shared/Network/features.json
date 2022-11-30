@@ -1,0 +1,378 @@
+{
+    "success": 1,
+    "error": [],
+    "data": {
+        "tabs": [{
+                "tab_id": "1",
+                "components": [{
+                        "type": 9,
+                        "data": [{
+                            "banner_id": 7126,
+                            "componentId": 338,
+                            "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F6160243_banner_2022-092-1242x810.jpg",
+                            "nodata": false,
+                            "type": 1,
+                            "data_id": "267",
+                            "data_url": "",
+                            "data_sort": "most_popular",
+                            "name": "",
+                            "coupon": "2222",
+                            "width": 2501,
+                            "height": 1146,
+                            "title": "",
+                            "open_in_app": 0
+                        }],
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 9,
+                        "data": [{
+                            "banner_id": 7496,
+                            "componentId": 431,
+                            "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F28577267_banner_2022-112-1242x810.jpg",
+                            "nodata": false,
+                            "type": 2,
+                            "data_id": "357",
+                            "data_url": "",
+                            "data_sort": "most_popular",
+                            "name": "",
+                            "coupon": "2222",
+                            "width": 2501,
+                            "height": 1087,
+                            "title": "",
+                            "open_in_app": 0
+                        }],
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 9,
+                        "data": [{
+                            "banner_id": 7473,
+                            "componentId": 426,
+                            "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F14383296_olahair--02-1242x810.jpg",
+                            "nodata": false,
+                            "type": 2,
+                            "data_id": "1010",
+                            "data_url": "",
+                            "data_sort": "most_popular",
+                            "name": "",
+                            "coupon": "2222",
+                            "width": 5001,
+                            "height": 2501,
+                            "title": "",
+                            "open_in_app": 0
+                        }],
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 9,
+                        "data": [{
+                            "banner_id": 7566,
+                            "componentId": 450,
+                            "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F82344008_banner_2022-06-1242x810.jpg",
+                            "nodata": false,
+                            "type": 2,
+                            "data_id": "1083",
+                            "data_url": "",
+                            "data_sort": "most_popular",
+                            "name": "",
+                            "coupon": "2222",
+                            "width": 2501,
+                            "height": 1224,
+                            "title": "",
+                            "open_in_app": 0
+                        }],
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 11,
+                        "data": [{
+                                "banner_id": 7468,
+                                "componentId": 424,
+                                "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F45392958_banner_2022-431-1150x380.jpg",
+                                "nodata": false,
+                                "type": 1,
+                                "data_id": "20",
+                                "data_url": "",
+                                "data_sort": "most_popular",
+                                "name": "",
+                                "coupon": "2222",
+                                "width": 834,
+                                "height": 1043,
+                                "title": "",
+                                "open_in_app": 0
+                            },
+                            {
+                                "banner_id": 7574,
+                                "componentId": 424,
+                                "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F59902908_banner_2022-421-1150x380.jpg",
+                                "nodata": false,
+                                "type": 1,
+                                "data_id": "58",
+                                "data_url": "",
+                                "data_sort": "most_popular",
+                                "name": "",
+                                "coupon": "2222",
+                                "width": 834,
+                                "height": 1043,
+                                "title": "",
+                                "open_in_app": 0
+                            },
+                            {
+                                "banner_id": 7575,
+                                "componentId": 424,
+                                "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F33904456_banner_2022-412-1150x380.jpg",
+                                "nodata": false,
+                                "type": 1,
+                                "data_id": "18",
+                                "data_url": "",
+                                "data_sort": "most_popular",
+                                "name": "",
+                                "coupon": "2222",
+                                "width": 834,
+                                "height": 1043,
+                                "title": "",
+                                "open_in_app": 0
+                            }
+                        ],
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 1,
+                        "name": "New Arrivals",
+                        "componentId": 30,
+                        "targetId": 0,
+                        "targetSort": "new_first",
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 9,
+                        "data": [{
+                            "banner_id": 7792,
+                            "componentId": 520,
+                            "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F31172413_SOMEBYMI-02-1242x810.jpg",
+                            "nodata": false,
+                            "type": 2,
+                            "data_id": "833",
+                            "data_url": "",
+                            "data_sort": "most_popular",
+                            "name": "",
+                            "coupon": "2222",
+                            "width": 5001,
+                            "height": 2236,
+                            "title": "",
+                            "open_in_app": 0
+                        }],
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 9,
+                        "data": [{
+                            "banner_id": 7554,
+                            "componentId": 447,
+                            "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F56546276_banner_2022-67-1242x810.jpg",
+                            "nodata": false,
+                            "type": 2,
+                            "data_id": "8",
+                            "data_url": "",
+                            "data_sort": "most_popular",
+                            "name": "",
+                            "coupon": "2222",
+                            "width": 2501,
+                            "height": 1224,
+                            "title": "",
+                            "open_in_app": 0
+                        }],
+                        "see_all_category_id": null
+                    },
+
+                    {
+                        "type": 1,
+                        "name": "Best Sales",
+                        "componentId": 29,
+                        "targetId": 289,
+                        "targetSort": "most_popular",
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 9,
+                        "data": [{
+                            "banner_id": 7678,
+                            "componentId": 488,
+                            "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F83182530_banner_2022-253-1242x810.jpg",
+                            "nodata": false,
+                            "type": 2,
+                            "data_id": "323",
+                            "data_url": "",
+                            "data_sort": "most_popular",
+                            "name": "",
+                            "coupon": "2222",
+                            "width": 2501,
+                            "height": 1147,
+                            "title": "",
+                            "open_in_app": 0
+                        }],
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 9,
+                        "data": [{
+                            "banner_id": 7510,
+                            "componentId": 435,
+                            "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F13995757_banner_2022-193-1242x810.jpg",
+                            "nodata": false,
+                            "type": 2,
+                            "data_id": "7",
+                            "data_url": "",
+                            "data_sort": "most_popular",
+                            "name": "",
+                            "coupon": "2222",
+                            "width": 2501,
+                            "height": 1047,
+                            "title": "",
+                            "open_in_app": 0
+                        }],
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 9,
+                        "data": [{
+                            "banner_id": 7464,
+                            "componentId": 422,
+                            "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F5751062_banner_2022-274-1242x810.jpg",
+                            "nodata": false,
+                            "type": 2,
+                            "data_id": "2",
+                            "data_url": "",
+                            "data_sort": "most_popular",
+                            "name": "",
+                            "coupon": "2222",
+                            "width": 2501,
+                            "height": 1101,
+                            "title": "",
+                            "open_in_app": 0
+                        }],
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 1,
+                        "name": "Best Makeup",
+                        "componentId": 3,
+                        "targetId": 88,
+                        "targetSort": "most_popular",
+                        "see_all_category_id": "13"
+                    },
+                    {
+                        "type": 9,
+                        "data": [{
+                            "banner_id": 7466,
+                            "componentId": 423,
+                            "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F37379619_banner_2022-081-1242x810.jpg",
+                            "nodata": false,
+                            "type": 2,
+                            "data_id": "134",
+                            "data_url": "",
+                            "data_sort": "most_popular",
+                            "name": "",
+                            "coupon": "2222",
+                            "width": 2501,
+                            "height": 1224,
+                            "title": "",
+                            "open_in_app": 0
+                        }],
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 9,
+                        "data": [{
+                            "banner_id": 7422,
+                            "componentId": 412,
+                            "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F85696719_banner_2022-21-1242x810.jpg",
+                            "nodata": false,
+                            "type": 2,
+                            "data_id": "982",
+                            "data_url": "",
+                            "data_sort": "most_popular",
+                            "name": "",
+                            "coupon": "2222",
+                            "width": 2501,
+                            "height": 1047,
+                            "title": "",
+                            "open_in_app": 0
+                        }],
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 1,
+                        "name": "Best Care",
+                        "componentId": 5,
+                        "targetId": 89,
+                        "targetSort": "most_popular",
+                        "see_all_category_id": "46"
+                    },
+                    {
+                        "type": 1,
+                        "name": "Best Lenses",
+                        "componentId": 20,
+                        "targetId": 92,
+                        "targetSort": "most_popular",
+                        "see_all_category_id": "47"
+                    },
+
+                    {
+                        "type": 9,
+                        "data": [{
+                            "banner_id": 7069,
+                            "componentId": 328,
+                            "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F41942834_banner_2022-292-1242x810.jpg",
+                            "nodata": false,
+                            "type": 1,
+                            "data_id": "159",
+                            "data_url": "",
+                            "data_sort": "most_popular",
+                            "name": "",
+                            "coupon": "2222",
+                            "width": 2501,
+                            "height": 1053,
+                            "title": "",
+                            "open_in_app": 0
+                        }],
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 9,
+                        "data": [{
+                            "banner_id": 7230,
+                            "componentId": 363,
+                            "image_url": "https://d3e7ardzpaj3y4.cloudfront.net/image/catalog%2Fapp_component%2F52648088_banner_2022-59-1242x810.jpg",
+                            "nodata": false,
+                            "type": 1,
+                            "data_id": "270",
+                            "data_url": "",
+                            "data_sort": "most_popular",
+                            "name": "",
+                            "coupon": "2222",
+                            "width": 2501,
+                            "height": 1054,
+                            "title": "",
+                            "open_in_app": 0
+                        }],
+                        "see_all_category_id": null
+                    },
+                    {
+                        "type": 1,
+                        "name": "Best Home Accessories",
+                        "componentId": 104,
+                        "targetId": 159,
+                        "targetSort": "most_popular",
+                        "see_all_category_id": "159"
+                    },
+                    {
+                        "see_all_category_id": null
+                    }
+                ]
+            }
+
+        ]
+    }
+}
