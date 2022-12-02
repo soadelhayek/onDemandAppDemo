@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0A624C293A1F4F00581286 /* features.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E0A62482937713900581286 /* features.json */; };
+		0E0A624E293A1FC300581286 /* Movie.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E0A624D293A1FC300581286 /* Movie.json */; };
 		0EA8FC6629366D4000517B2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA8FC6529366D4000517B2C /* Assets.xcassets */; };
 		0EA8FC6929366D4000517B2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA8FC6729366D4000517B2C /* LaunchScreen.storyboard */; };
 		0ED023C3293757DB006647FB /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED0238A29367D32006647FB /* Feature.swift */; };
@@ -38,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		0E0A62482937713900581286 /* features.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = features.json; sourceTree = "<group>"; };
+		0E0A624D293A1FC300581286 /* Movie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Movie.json; sourceTree = "<group>"; };
 		0EA8FC5929366D3C00517B2C /* FlowadDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowadDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA8FC5C29366D3C00517B2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA8FC5E29366D3C00517B2C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +175,7 @@
 		0ED023BD2937473B006647FB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				0E0A624D293A1FC300581286 /* Movie.json */,
 				0ED023BB29374721006647FB /* ApiURLs.swift */,
 				0ED023B9293746F4006647FB /* TypeAliases.swift */,
 				0ED023B72937465D006647FB /* WebServicesManager.swift */,
@@ -295,6 +299,8 @@
 			files = (
 				0EA8FC6929366D4000517B2C /* LaunchScreen.storyboard in Resources */,
 				0EA8FC6629366D4000517B2C /* Assets.xcassets in Resources */,
+				0E0A624E293A1FC300581286 /* Movie.json in Resources */,
+				0E0A624C293A1F4F00581286 /* features.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
