@@ -1,0 +1,69 @@
+//
+//  Movie.json
+//  FlowadDemoApp
+//
+//  Created by soad hayek on 30.11.2022.
+//
+
+import Foundation
+
+    {
+        "success": 1,
+        "error": [],
+        "data": [{
+            "title": "temps11",
+            "id": "33",
+            "images": ["https://d3e7ardzpaj3y4.cloudfront.net/image/catalog/product/95448956_NiceOne7-1-500x500.png"]
+        }, {
+            "title": "temps11",
+            "id": "33",
+            "images": ["https://d3e7ardzpaj3y4.cloudfront.net/image/catalog/product/95448956_NiceOne7-1-500x500.png"]
+        }, {
+            "title": "temps11",
+            "id": "33",
+            "images": ["https://d3e7ardzpaj3y4.cloudfront.net/image/catalog/product/95448956_NiceOne7-1-500x500.png"]
+        }, {
+            "title": "temps11",
+            "id": "33",
+            "images": ["https://d3e7ardzpaj3y4.cloudfront.net/image/catalog/product/95448956_NiceOne7-1-500x500.png"]
+        }, {
+            "title": "temps11",
+            "id": "33",
+            "images": ["https://d3e7ardzpaj3y4.cloudfront.net/image/catalog/product/95448956_NiceOne7-1-500x500.png"]
+        }, {
+            "title": "temps11",
+            "id": "33",
+            "images": ["https://d3e7ardzpaj3y4.cloudfront.net/image/catalog/product/95448956_NiceOne7-1-500x500.png"]
+        }, {
+            "title": "temps11",
+            "id": "33",
+            "images": ["https://d3e7ardzpaj3y4.cloudfront.net/image/catalog/product/95448956_NiceOne7-1-500x500.png"]
+        }, {
+            "title": "temps11",
+            "id": "33",
+            "images": ["https://d3e7ardzpaj3y4.cloudfront.net/image/catalog/product/95448956_NiceOne7-1-500x500.png"]
+        }, {
+            "title": "temps11",
+            "id": "33",
+            "images": ["https://d3e7ardzpaj3y4.cloudfront.net/image/catalog/product/95448956_NiceOne7-1-500x500.png"]
+        }, {
+            "title": "temps11",
+            "id": "33",
+            "images": ["https://d3e7ardzpaj3y4.cloudfront.net/image/catalog/product/95448956_NiceOne7-1-500x500.png"]
+        }, {
+            "title": "temps11",
+            "id": "33",
+            "images": ["https://d3e7ardzpaj3y4.cloudfront.net/image/catalog/product/95448956_NiceOne7-1-500x500.png"]
+        }, {
+            "title": "temps11",
+            "id": "33",
+            "images": ["https://d3e7ardzpaj3y4.cloudfront.net/image/catalog/product/95448956_NiceOne7-1-500x500.png"]
+        }, {
+            "title": "temps11",
+            "id": "33",
+            "images": ["https://d3e7ardzpaj3y4.cloudfront.net/image/catalog/product/95448956_NiceOne7-1-500x500.png"]
+        }]
+
+
+
+    }

@@ -10,8 +10,14 @@ import ObjectMapper
 
 
 struct HomeModel {
-    static var components: [Int: Component] = [:]
+public  static var components: [Int: Component] = [:]
 
+    init(components: [Int : Component]) {
+        HomeModel.components = components
+    }
 
+    init() {
+        
+    }
     
 }

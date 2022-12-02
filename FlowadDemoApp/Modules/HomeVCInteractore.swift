@@ -16,38 +16,14 @@ class HomeVCInteractore: HomeVCInteractoreLogic{
     var presenter: HomeVCPresentationLogic?
     
     func getHome(){
-        
-        HomeVCWorker.shared().loadMain().done(){
-            if  HomeModel.components.count > 0 {
-                HomeModel.components.forEach { (index, component) in
-                    guard let componentType = component.componentType,
-                          componentType == .Quick,
-                          let component_id = component.component_id else { return }
-                    
-                    guard component.items.count == 0 else {
-                        //                    self.collectionView.performBatchUpdates({
-                        //                        self.collectionView.reloadSections(IndexSet(integer: index))
-                        //                    }, completion: nil)
-                        return
-                    }
-                    
-                    HomeVCWorker.shared().getData(id: component_id, componentType: componentType, index: index, component: component).done { _ in
-                        //                    self.collectionView.performBatchUpdates({
-                        //                        self.collectionView.collectionViewLayout.invalidateLayout()
-                        //                        self.collectionView.reloadSections(IndexSet(integer: index))
-                        //                    }, completion: nil)
-                    }
-                }
-                
-                
-                
-            }
+        HomeVCWorker.shared().loadMain().done( { homeModel in
+        let response = HomeVCModel.Home.Response(homeData: homeModel, status: true)
+            self.presenter?.presentHome(response: response )
             
-        }
-        
-        
-        
+        })
     }
     
-}
+    
+    
+    }
 

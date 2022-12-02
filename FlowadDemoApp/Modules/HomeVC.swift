@@ -15,16 +15,9 @@ protocol HomeLogic: AnyObject {
 
 class HomeVC: UIViewController {
     
-    @IBOutlet weak var adsCollectionLayout: ArabicCollectionFlow!
-    @IBOutlet weak var storyFollwersLayout: ArabicCollectionFlow!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var emptyLabel: UILabel!
-    @IBOutlet weak var adsForYouColletion: UICollectionView!
-    @IBOutlet weak var adsCollection: UICollectionView!
-    @IBOutlet weak var followesStoryCollection: UICollectionView!
     
-    let followingCellID = "FollowingStoryCVCell"
-    let adCellID = "AdStoryCVCell"
+    let featureCellId = "featureCell"
+    let SliderCellId = "sliderCell"
     
     lazy var searchBar:UISearchBar = UISearchBar()
     var searchController = UISearchController(searchResultsController: nil)
@@ -58,7 +51,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav()
-        setupView()
+        setupViews()
         getHome()
     }
     
@@ -76,34 +69,47 @@ class HomeVC: UIViewController {
     }
     
     func setupNav(){
-        self.title = "Stories"
+        self.title = "Movies"
     }
     
-    func setupView(){
-        self.view.backgroundColor = .white
-//        self.followesStoryCollection.register(UINib(nibName: followingCellID, bundle: nil), forCellWithReuseIdentifier: followingCellID)
-//
-//        self.adsForYouColletion.register(UINib(nibName: adCellID, bundle: nil), forCellWithReuseIdentifier: adCellID)
-//
-//        self.adsCollection.register(UINib(nibName: adCellID, bundle: nil), forCellWithReuseIdentifier: adCellID)
-        
-        
-        refreshControl.attributedTitle = NSAttributedString(string: "")
-        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-        scrollView.addSubview(refreshControl)
     
-        if Helpers.isRTL() {
-//            followesStoryCollection.semanticContentAttribute = .forceRightToLeft
-//            adsCollection.semanticContentAttribute = .forceRightToLeft
+    lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionHeadersPinToVisibleBounds = false
+        let collectionview = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: layout)
+        collectionview.delegate = self
+        collectionview.dataSource = self
+        collectionview.backgroundColor =  UIColor.white
+        collectionview.keyboardDismissMode = .interactive
+        registerCells(collectionview)
+        collectionview.isPrefetchingEnabled = true
+//        collectionview.prefetchDataSource = self
+        collectionview.semanticContentAttribute = .forceLeftToRight
+        return collectionview
+    }()
+
+    func registerCells(_ collectionView: UICollectionView) {
+        collectionView.register(MainScreenQuickMovieList.self, forCellWithReuseIdentifier: SliderCellId)
+        collectionView.register(FlixableImageCollectionViewCell.self, forCellWithReuseIdentifier: featureCellId)
+    }
+    
+
+    func setupViews() {
+        extendedLayoutIncludesOpaqueBars = false
+        view.backgroundColor = UIColor(red: 248/255.0, green: 248/255.0, blue: 248/255.0, alpha: 1)
+        view.addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
         }
-//        storyFollwersLayout.scrollDirection = .horizontal
-//        adsCollectionLayout.scrollDirection = .horizontal
         
     }
+
+ 
     
     @objc func refresh(_ sender: AnyObject) {
         self.getHome()
-        refreshControl.endRefreshing()
+//        refreshControl.endRefreshing()
     }
     
  
@@ -132,27 +138,14 @@ extension HomeVC: HomeLogic{
     func displayHome(viewModel: HomeVCModel.Home.ViewModel) {
         if viewModel.status {
             guard let data = viewModel.homeData else{
-                self.emptyLabel.isHidden = false
-                self.scrollView.isHidden = true
+//                self.emptyLabel.isHidden = false
+//                self.scrollView.isHidden = true
                 return
             }
             
-//            if let customStory = Follower.init(JSON: [:]) {
-//                customStory.AddImage = #imageLiteral(resourceName: "iconfinder_add")
-//                customStory.name = "Add Follower".localized
-//                customStory.isCustom = true
-//                data.following?.insert(customStory, at: 0)
-//            }
-//
-//            self.followings = data.following
-//            self.chosedAds = data.chosed_ads
-//            self.pinnedAds = data.pinned_ads
+            collectionView.reloadData()
             
-//            self.emptyLabel.isHidden = true
-//            self.scrollView.isHidden = false
-//            self.adsCollection.reloadData()
-//            self.adsForYouColletion.reloadData()
-//            self.followesStoryCollection.reloadData()
+            
         }
     }
     
@@ -171,13 +164,36 @@ extension HomeVC: UICollectionViewDelegate{
 
 extension HomeVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return HomeModel.components.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath) as! MovieCell
-        
-        return cell
+            
+//        guard let components = HomeModel.components else {
+//                return UICollectionViewCell()
+//            }
+            switch HomeModel.components[indexPath.section]?.componentType {
+            case .Quick:
+                
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SliderCellId, for: indexPath) as! MainScreenQuickMovieList
+                return cell
+          
+            default:
+                
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: featureCellId, for: indexPath) as! FlixableImageCollectionViewCell
+                
+                guard let features = HomeModel.components[indexPath.section]?.data else { return cell }
+                let images = features.compactMap { URL(string: $0.image_url) }
+                cell.images = images
+                cell.cellIndexPath = indexPath
+//                cell.delegate = self
+                cell.features = features
+                let component = HomeModel.components[indexPath.section]
+                cell.componet = component
+
+                return cell
+            }
+
     }
     
 }
@@ -188,24 +204,64 @@ extension HomeVC: UICollectionViewDataSource{
 
 extension HomeVC: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.zero
+        guard  HomeModel.components.count > 0 else {
+            return .zero
+        }
+        let width = collectionView.bounds.width
+        
+        switch HomeModel.components[indexPath.section]?.componentType {
+        case .Quick:
+            return CGSize(width: width, height:  400)
+      
+        default:
+            
+            guard let features = HomeModel.components[indexPath.section]?.data else {
+                return CGSize(width: width, height: 0)
+            }
+            
+            guard let height = features.first?.height, height > 0,
+                let orighlWidth = features.first?.width, orighlWidth > 0,
+                let imageLink = features.first?.image_url, !imageLink.isEmpty else {
+                    return CGSize(width: 0, height: 0)
+            }
+            
+            let newHieght = ( CGFloat( height) / CGFloat(orighlWidth) ) * width
+            
+            return CGSize(width: width, height: newHieght)
+        }
     }
     
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 4
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        switch section {
+        case 1:
+            return CGSize(width: collectionView.bounds.width, height: 0)
+        default:
+            return .zero
+        }
+    }
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 4
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if collectionView == followesStoryCollection  || collectionView == adsCollection{
-        return UIEdgeInsets(top: 0, left: 8, bottom:0 , right: 8)
-        } else {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-
+        if HomeModel.components.count <= 0  {
+            return UIEdgeInsets(top: 12, left: 0, bottom: 6, right: 0)
+        }
+        
+        switch section {
+        case 0:
+            return UIEdgeInsets(top: 12, left: 0, bottom: 6, right: 0)
+        default:
+            return UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
         }
     }
+    
 }
 

@@ -1,3 +1,11 @@
+//
+//  HomeVCWorker.swift
+//  SnapCar
+//
+//  Created by Amal abukuwik on 8.11.2020.
+//  Copyright © 2020 com. All rights reserved.
+//
+
 import Foundation
 import SwiftyJSON
 import Alamofire
@@ -12,8 +20,8 @@ class HomeVCWorker :WebServiceManager {
     
     
     
-    public func getMainScreenData() -> Promise<[[String: Any]]> {
-        return Promise<[[String: Any]]> { promise in
+    public func getMainScreenData() -> Promise<[String: Any]> {
+        return Promise<[String: Any]> { promise in
             if let comp = WebServiceManager().fetchJSONContent() , comp.count > 0 {
                 promise.fulfill(comp)
                 
@@ -24,33 +32,42 @@ class HomeVCWorker :WebServiceManager {
     }
     
     
-    public func loadMain() -> Promise<Void> {
-        return getMainScreenData().done { (results) in
-            
-            HomeModel.components.removeAll()
-            
-            for (index, element) in results.enumerated() {
-                HomeModel.components[index] = Component(JSON: element)
+    
+    
+    public func loadMain() -> Promise<HomeModel> {
+        return Promise <HomeModel> { prom in
+            getMainScreenData().done { results in
+                var comp: [Int: Component] = [:]
+                if let data = results["components"] as? [[String : Any]] {
+                    for (index, element) in data.enumerated() {
+                        comp[index] = Component(JSON: element)
+                    }
+                    let home = HomeModel(components: comp)
+                    prom.fulfill(home)
+                } else {
+                    prom.reject(ServiceError.stringError("error"))
+                }
+
             }
         }
+       
     }
     
     
-    public func getData(id: Int, componentType: ComponentType, index: Int, component: Component) -> Promise<Component?> {
+    static func getData(id: Int, componentType: ComponentType, index: Int, component: Component) -> Promise<Component?> {
         return loadDataWith(id).then { (response) -> Promise<Component?> in
             switch componentType {
             default:
-                return self.parseQuick(json: response, id: id, index: index, component: component)
+                return parseQuick(json: response, id: id, index: index, component: component)
             }
         }
     }
 
     
-     func loadDataWith(_ id: Int) -> Promise<[[String: Any]]> {
+    static func loadDataWith(_ id: Int) -> Promise<[[String: Any]]> {
         return Promise<[[String: Any]]> { promise in
             if let result =   WebServiceManager().fetchMovieJSONContent(), result.count > 0 {
                 promise.fulfill(result)
-
             } else {
                 promise.reject(ServiceError.stringError("error"))
             }
@@ -59,10 +76,8 @@ class HomeVCWorker :WebServiceManager {
     
 
     
-      func parseQuick(json: [[String: Any]], id: Int, index: Int, component: Component? = nil) -> Promise<Component?> {
+    private static func parseQuick(json: [[String: Any]], id: Int, index: Int, component: Component? = nil) -> Promise<Component?> {
         return Promise<Component?> { promise in
-          
-            
             let component = HomeModel.components[index]
             component?.items = json.compactMap { Movie(JSON: $0) }
             HomeModel.components[index] = component
@@ -71,6 +86,3 @@ class HomeVCWorker :WebServiceManager {
     }
 
 }
-
-
-

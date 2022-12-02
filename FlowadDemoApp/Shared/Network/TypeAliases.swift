@@ -12,3 +12,4 @@ typealias LoginHandler = (_ status:Bool) -> Void
 typealias RequestObjectHandler = (_ result:Bool, _ object: Any?) -> Void
 typealias InternetConnectionChecker = (_ status: Bool) -> Void
 typealias ProcessCodeHandler = (_ status: Int) -> Void
+typealias RequestHomeHandler = (_ success: Bool, _ data: HomeModel?) -> Void

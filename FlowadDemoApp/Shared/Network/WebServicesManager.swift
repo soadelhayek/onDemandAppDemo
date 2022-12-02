@@ -68,11 +68,11 @@ class WebServiceManager {
     
     
     
-    func fetchJSONContent() -> [[String: Any]]?{
+    func fetchJSONContent() -> [String: Any]?{
         if let path = Bundle.main.path(forResource: "features", ofType: "json") {
             do {
                 let text = try String(contentsOfFile: path, encoding: .utf8)
-                if let dict = try JSONSerialization.jsonObject(with: text.data(using: .utf8)!, options: JSONSerialization.ReadingOptions.allowFragments) as? [[String: Any]] {
+                if let dict = try JSONSerialization.jsonObject(with: text.data(using: .utf8)!, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any] {
                     return dict
                 }
             }catch {
@@ -80,7 +80,7 @@ class WebServiceManager {
             }
         }
 
-        return [[:]]
+        return [:]
     }
     
     
