@@ -39,7 +39,7 @@ class MainScreenQuickMovieList: BaseCollectionViewCell {
         layout.itemSize = CGSize(width: 160, height: contentView.bounds.height - 53)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = UIColor.white
+        cv.backgroundColor = UIColor.whiteSeven
         cv.dataSource = self
         cv.delegate = self
         cv.bounces = true
@@ -60,7 +60,7 @@ class MainScreenQuickMovieList: BaseCollectionViewCell {
         let stack = UIStackView(arrangedSubviews: [titleLabel, seeAllButton])
         stack.distribution = .equalCentering
         stack.alignment = .fill
-        stack.backgroundColor = UIColor.white
+        stack.backgroundColor = UIColor.whiteSeven
         return stack
     }()
 
@@ -80,8 +80,8 @@ class MainScreenQuickMovieList: BaseCollectionViewCell {
         super.setupViews()
         contentView.addSubview(headerStack)
         contentView.addSubview(collectionView)
-        backgroundColor = UIColor.white
-        collectionView.backgroundColor = UIColor.white
+        backgroundColor = UIColor.whiteSeven
+        collectionView.backgroundColor = UIColor.whiteSeven
 
         headerStack.snp.makeConstraints { (make) in
             make.leading.trailing.equalToSuperview().inset(12)

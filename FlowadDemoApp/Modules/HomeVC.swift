@@ -79,7 +79,7 @@ class HomeVC: UIViewController {
         let collectionview = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: layout)
         collectionview.delegate = self
         collectionview.dataSource = self
-        collectionview.backgroundColor =  UIColor.white
+        collectionview.backgroundColor =  UIColor.whiteSeven
         collectionview.keyboardDismissMode = .interactive
         registerCells(collectionview)
         collectionview.isPrefetchingEnabled = true

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E0A624C293A1F4F00581286 /* features.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E0A62482937713900581286 /* features.json */; };
 		0E0A624E293A1FC300581286 /* Movie.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E0A624D293A1FC300581286 /* Movie.json */; };
+		0E0A6250293AA0E100581286 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0A624F293AA0E100581286 /* UIColor+Additions.swift */; };
 		0EA8FC6629366D4000517B2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA8FC6529366D4000517B2C /* Assets.xcassets */; };
 		0EA8FC6929366D4000517B2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA8FC6729366D4000517B2C /* LaunchScreen.storyboard */; };
 		0ED023C3293757DB006647FB /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED0238A29367D32006647FB /* Feature.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		0E0A62482937713900581286 /* features.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = features.json; sourceTree = "<group>"; };
 		0E0A624D293A1FC300581286 /* Movie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Movie.json; sourceTree = "<group>"; };
+		0E0A624F293AA0E100581286 /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		0EA8FC5929366D3C00517B2C /* FlowadDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowadDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA8FC5C29366D3C00517B2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA8FC5E29366D3C00517B2C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				0ED0239F29372A27006647FB /* Helpers.swift */,
 				0ED023DF29375AE5006647FB /* UIImageView+ImageLoader.swift */,
+				0E0A624F293AA0E100581286 /* UIColor+Additions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			files = (
 				0ED023C3293757DB006647FB /* Feature.swift in Sources */,
 				0ED023C5293757DB006647FB /* MovieCell.swift in Sources */,
+				0E0A6250293AA0E100581286 /* UIColor+Additions.swift in Sources */,
 				0ED023C6293757DB006647FB /* component.swift in Sources */,
 				0ED023C7293757DB006647FB /* Movie.swift in Sources */,
 				0ED023C8293757DC006647FB /* HomeModel.swift in Sources */,

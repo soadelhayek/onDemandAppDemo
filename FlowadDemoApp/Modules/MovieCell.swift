@@ -26,7 +26,7 @@ class MovieCell: BaseCollectionViewCell {
         let label = UILabel()
         label.text = "Movie 1 Title"
         label.textColor = UIColor.black
-        label.textAlignment = NSTextAlignment.natural
+        label.textAlignment = NSTextAlignment.center
         label.font = UIFont.systemFont(ofSize: 13, weight: .light)
         label.numberOfLines = 2
         label.sizeToFit()
@@ -60,13 +60,14 @@ class MovieCell: BaseCollectionViewCell {
         movieThumb.snp.makeConstraints { (make) in
             make.leading.trailing.equalToSuperview()
             make.top.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.47)
+            make.height.equalToSuperview().multipliedBy(0.70)
         }
         nameLabel.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().inset(13)
             make.trailing.equalToSuperview().inset(10)
             make.height.equalTo(32.66)
-            make.bottom.equalTo(movieThumb.snp.bottom).inset(8)
+            make.top.equalTo(movieThumb.snp.bottom).inset(-8)
+            
             }
        
     }

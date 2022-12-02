@@ -18,7 +18,7 @@ struct Movie: Mappable{
     var name: String?
     mutating func mapping(map: Map) {
         images <- map["images"]
-        name <- map["name"]
+        name <- map["title"]
         thumb <- map["thumb"]
         video_url <- map["video_url"]
     }
