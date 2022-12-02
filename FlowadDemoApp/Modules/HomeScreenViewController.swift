@@ -257,24 +257,5 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
             collectionView.deselectItem(at: indexPath, animated: true)
         }
         
-        func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-            guard let components = components else {
-                return
-            }
-            switch components[indexPath.section]?.componentType {
-            case .Quick:
-                guard let cell = cell as? MainScreenQuickMovieList else {
-                    return
-                }
-                guard let component = components[indexPath.section] else {
-                    return
-                }
-            default:
-                return
-            }
-            
-        }
-        
-            
-            
+       
     }

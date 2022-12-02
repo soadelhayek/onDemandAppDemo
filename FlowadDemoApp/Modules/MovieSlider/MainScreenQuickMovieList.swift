@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Nuke
 
 class MainScreenQuickMovieList: BaseCollectionViewCell {
 
@@ -35,7 +36,7 @@ class MainScreenQuickMovieList: BaseCollectionViewCell {
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 8
-        layout.itemSize = CGSize(width: 160, height: 53)
+        layout.itemSize = CGSize(width: 160, height: contentView.bounds.height - 53)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = UIColor.white
@@ -158,7 +159,10 @@ extension MainScreenQuickMovieList: UICollectionViewDataSource {
         guard let cell = cell as? MovieCell else {
             return
         }
-//        cell.movieThumb.image = 
+//        cell.movieThumb.image =
+        
+        cell.movieThumb.setImageWith(moviesList[indexPath.row].images?.first , mode: ImageProcessors.Resize.ContentMode.aspectFill)
+
         cell.index = indexPath
         cell.nameLabel.text = moviesList[indexPath.row].name
     }

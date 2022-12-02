@@ -137,8 +137,7 @@ extension HomeVC: HomeLogic{
     
     func displayHome(viewModel: HomeVCModel.Home.ViewModel) {
         if viewModel.status {
-            guard let data = viewModel.homeData else{
-
+            guard viewModel.homeData != nil else{
                 return
             }
             
@@ -249,7 +248,7 @@ extension HomeVC: UICollectionViewDelegateFlowLayout{
         
         switch HomeModel.components[indexPath.section]?.componentType {
         case .Quick:
-            return CGSize(width: width, height:  400)
+            return CGSize(width: width, height:  200)
       
         default:
             

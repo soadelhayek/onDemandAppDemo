@@ -16,7 +16,7 @@ class HomeVCInteractore: HomeVCInteractoreLogic{
     var presenter: HomeVCPresentationLogic?
     
     func getHome(){
-        HomeVCWorker.shared().loadMain().done( { homeModel in
+       _ =  HomeVCWorker.shared().loadMain().done( { homeModel in
         let response = HomeVCModel.Home.Response(homeData: homeModel, status: true)
             self.presenter?.presentHome(response: response )
             

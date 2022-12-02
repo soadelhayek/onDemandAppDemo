@@ -65,8 +65,8 @@ class MovieCell: BaseCollectionViewCell {
         nameLabel.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().inset(13)
             make.trailing.equalToSuperview().inset(10)
-                make.height.equalTo(32.66)
-            make.bottom.equalToSuperview().inset(8)
+            make.height.equalTo(32.66)
+            make.bottom.equalTo(movieThumb.snp.bottom).inset(8)
             }
        
     }

@@ -36,7 +36,7 @@ class HomeVCWorker :WebServiceManager {
     
     public func loadMain() -> Promise<HomeModel> {
         return Promise <HomeModel> { prom in
-            getMainScreenData().done { results in
+          _ = getMainScreenData().done { results in
                 var comp: [Int: Component] = [:]
                 if let data = results["components"] as? [[String : Any]] {
                     for (index, element) in data.enumerated() {
@@ -87,7 +87,7 @@ class HomeVCWorker :WebServiceManager {
             }
             let component = HomeModel.components[index]
             component?.items = data.compactMap { Movie(JSON: $0) }
-//            HomeModel.components[index] = component
+            HomeModel.components[index] = component
             promise.fulfill(component)
         }
     }
