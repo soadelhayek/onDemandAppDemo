@@ -18,29 +18,36 @@ class HomeVCInteractore: HomeVCInteractoreLogic{
     func getHome(){
         
         HomeVCWorker.shared().loadMain().done(){
-            
-            
+            if  HomeModel.components.count > 0 {
+                HomeModel.components.forEach { (index, component) in
+                    guard let componentType = component.componentType,
+                          componentType == .Quick,
+                          let component_id = component.component_id else { return }
+                    
+                    guard component.items.count == 0 else {
+                        //                    self.collectionView.performBatchUpdates({
+                        //                        self.collectionView.reloadSections(IndexSet(integer: index))
+                        //                    }, completion: nil)
+                        return
+                    }
+                    
+                    HomeVCWorker.shared().getData(id: component_id, componentType: componentType, index: index, component: component).done { _ in
+                        //                    self.collectionView.performBatchUpdates({
+                        //                        self.collectionView.collectionViewLayout.invalidateLayout()
+                        //                        self.collectionView.reloadSections(IndexSet(integer: index))
+                        //                    }, completion: nil)
+                    }
+                }
+                
+                
+                
+            }
             
         }
         
         
-        //        HomeVCWorker.shared().GetHome(Callback: { (status, homeModel) in
-//            if status && homeModel != nil {
-//            let response = HomeVCModel.Home.Response(homeData: homeModel, status: status)
-//
-//            var idsList: [Int] = []
-//
-//            for item in homeModel!.following! {
-//                idsList.append(item.id!)
-//            }
-//                if idsList.count > 0 {
-//                    self.getListOfFollwersAds(id: idsList)
-//                }
-//           self.presenter?.presentHome(response: response)
-//            }})
+        
     }
     
-    
-    
-    }
+}
 
