@@ -158,7 +158,7 @@ extension MainScreenQuickMovieList: UICollectionViewDataSource {
         guard let cell = cell as? MovieCell else {
             return
         }
-        cell.movieThumb.image = #imageLiteral(resourceName: "Blank")
+//        cell.movieThumb.image = 
         cell.index = indexPath
         cell.nameLabel.text = moviesList[indexPath.row].name
     }

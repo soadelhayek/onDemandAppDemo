@@ -54,18 +54,20 @@ class HomeVCWorker :WebServiceManager {
     }
     
     
-    static func getData(id: Int, componentType: ComponentType, index: Int, component: Component) -> Promise<Component?> {
+    public func getData(id: Int, componentType: ComponentType, index: Int, component: Component) -> Promise<Component?> {
         return loadDataWith(id).then { (response) -> Promise<Component?> in
             switch componentType {
-            default:
-                return parseQuick(json: response, id: id, index: index, component: component)
+            case .Quick:
+                 let data = response["data"] as? [[String: Any]]
+                
+                return HomeVCWorker.parseQuick(json: data , id: id, index: index, component: component)
             }
         }
     }
 
     
-    static func loadDataWith(_ id: Int) -> Promise<[[String: Any]]> {
-        return Promise<[[String: Any]]> { promise in
+    public func loadDataWith(_ id: Int) -> Promise<[String: Any]> {
+        return Promise<[String: Any]> { promise in
             if let result =   WebServiceManager().fetchMovieJSONContent(), result.count > 0 {
                 promise.fulfill(result)
             } else {
@@ -76,11 +78,16 @@ class HomeVCWorker :WebServiceManager {
     
 
     
-    private static func parseQuick(json: [[String: Any]], id: Int, index: Int, component: Component? = nil) -> Promise<Component?> {
+    public static func parseQuick(json: [[String: Any]]?, id: Int, index: Int, component: Component? = nil) -> Promise<Component?> {
         return Promise<Component?> { promise in
+            
+            guard let data = json , data.count > 0 else {
+                promise.reject(ServiceError.stringError("error"))
+                return
+            }
             let component = HomeModel.components[index]
-            component?.items = json.compactMap { Movie(JSON: $0) }
-            HomeModel.components[index] = component
+            component?.items = data.compactMap { Movie(JSON: $0) }
+//            HomeModel.components[index] = component
             promise.fulfill(component)
         }
     }

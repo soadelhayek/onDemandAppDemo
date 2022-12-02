@@ -15,7 +15,8 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
   
     var components: [Int: Component]? {
         didSet {
-//            self.collectionView.reloadData()
+//            self.collectionView.
+    ()
             loadContent()
         }
     }
@@ -84,6 +85,26 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
 //                    }, completion: nil)
 //                }
 //            }
+            HomeModel.components.forEach { (index, component) in
+                        guard let componentType = component.componentType,
+                                    componentType == .Quick,
+                                    let component_id = component.component_id else { return }
+                
+                                guard component.items.count == 0 else {
+                                    self.collectionView.performBatchUpdates({
+                                        self.collectionView.reloadSections(IndexSet(integer: index))
+                                    }, completion: nil)
+                                    return
+                                }
+               _ =  HomeVCWorker.shared().getData(id: component_id, componentType: componentType, index: index, component: component)
+                                    self.collectionView.performBatchUpdates({
+                                        self.collectionView.collectionViewLayout.invalidateLayout()
+                                        self.collectionView.reloadSections(IndexSet(integer: index))
+                                    }, completion: nil)
+
+
+            }
+            
         }
         
         override func viewDidAppear(_ animated: Bool) {

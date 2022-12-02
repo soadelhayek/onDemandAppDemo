@@ -51,7 +51,7 @@ class MovieCell: BaseCollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        movieThumb.image = #imageLiteral(resourceName: "Blank")
+//        movieThumb.image = #imageLiteral(resourceName: "Blan
         nameLabel.text = ""
     }
     

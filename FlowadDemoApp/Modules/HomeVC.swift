@@ -138,12 +138,33 @@ extension HomeVC: HomeLogic{
     func displayHome(viewModel: HomeVCModel.Home.ViewModel) {
         if viewModel.status {
             guard let data = viewModel.homeData else{
-//                self.emptyLabel.isHidden = false
-//                self.scrollView.isHidden = true
+
                 return
             }
             
             collectionView.reloadData()
+
+            HomeModel.components.forEach { (index, component) in
+                        guard let componentType = component.componentType,
+                                    componentType == .Quick,
+                                    let component_id = component.component_id else { return }
+                
+                                guard component.items.count == 0 else {
+                                    self.collectionView.performBatchUpdates({
+                                        self.collectionView.reloadSections(IndexSet(integer: index))
+                                    }, completion: nil)
+                                    return
+                                }
+               _ =  HomeVCWorker.shared().getData(id: component_id, componentType: componentType, index: index, component: component)
+                                    self.collectionView.performBatchUpdates({
+                                        self.collectionView.collectionViewLayout.invalidateLayout()
+                                        self.collectionView.reloadSections(IndexSet(integer: index))
+                                    }, completion: nil)
+
+
+            }
+
+            
             
             
         }
@@ -164,15 +185,15 @@ extension HomeVC: UICollectionViewDelegate{
 
 extension HomeVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return HomeModel.components.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            
-//        guard let components = HomeModel.components else {
-//                return UICollectionViewCell()
-//            }
-            switch HomeModel.components[indexPath.section]?.componentType {
+        switch HomeModel.components[indexPath.section]?.componentType {
             case .Quick:
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SliderCellId, for: indexPath) as! MainScreenQuickMovieList
@@ -196,6 +217,23 @@ extension HomeVC: UICollectionViewDataSource{
 
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        switch HomeModel.components[indexPath.section]?.componentType {
+        case .Quick:
+            guard let cell = cell as? MainScreenQuickMovieList else {
+                return
+            }
+            guard let component = HomeModel.components[indexPath.section] else {
+                return
+            }
+//            cell.delegate = self
+            cell.index = indexPath.section
+            cell.setupWithData(component: component)
+        default:
+            return
+        }
+        
+    }
 }
     
     
@@ -265,3 +303,13 @@ extension HomeVC: UICollectionViewDelegateFlowLayout{
     
 }
 
+
+
+extension HomeVC: UICollectionViewDataSourcePrefetching {
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+    }
+
+    
+}
